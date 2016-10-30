@@ -15,7 +15,7 @@ principal() {           # Função principal do programa
     echo "[5] ler 2 números e indicar qual é o maior deles e qual é o menor"             
     echo "[6] Exibir as últimas linhas de um arquivo"                                    
     echo "[7] Exibir as primeiras linhas de um arquivo"                                  
-    echo "[8] Mostrar a localização de um comando específico utilizar which ou whereis"  
+    echo "[8] Mostrar a localização de um comando específico utilizar whereis"  
     echo "[9] Mostra um diretório informado pelo usuário em formato de árvore"           
     echo "[10] Copiar um arquivo para um outro diretório"                                
     echo "[11] Mover um arquivo para outro diretório"                                    
