@@ -12,15 +12,15 @@ principal() {           # Função principal do programa
     echo "[1] Mostrar a localização atual do usuário no sistema de arquivos"             # imprime na tela as opções que serão
     echo "[2] Mostrar o tipo de um arquivo"                                              # abordadas no comando case
     echo "[3] Criar um diretório"
-    echo "[4] Apagar um diretório não vazio"                                             # abordadas no comando case
-    echo "[5] ler 2 números e indicar qual é o maior deles e qual é o menor"             # abordadas no comando case
-    echo "[6] Exibir as últimas linhas de um arquivo"                                    # abordadas no comando case
-    echo "[7] Exibir as primeiras linhas de um arquivo"                                  # abordadas no comando case
-    echo "[8] Mostrar a localização de um comando específico utilizar which ou whereis"  # abordadas no comando case
-    echo "[9] Mostra um diretório informado pelo usuário em formato de árvore"           # abordadas no comando case
-    echo "[10] Copiar um arquivo para um outro diretório"                                # abordadas no comando case
-    echo "[11] Mover um arquivo para outro diretório"                                    # abordadas no comando case
-    echo "[12] Sair"                                                                     # abordadas no comando case
+    echo "[4] Apagar um diretório não vazio"                                             
+    echo "[5] ler 2 números e indicar qual é o maior deles e qual é o menor"             
+    echo "[6] Exibir as últimas linhas de um arquivo"                                    
+    echo "[7] Exibir as primeiras linhas de um arquivo"                                  
+    echo "[8] Mostrar a localização de um comando específico utilizar which ou whereis"  
+    echo "[9] Mostra um diretório informado pelo usuário em formato de árvore"           
+    echo "[10] Copiar um arquivo para um outro diretório"                                
+    echo "[11] Mover um arquivo para outro diretório"                                    
+    echo "[12] Sair"                                                                     
     echo
     echo -n "Qual a opcao desejada ? "
     read opcao          # faz a leitura da variável "opcao", 
@@ -31,7 +31,7 @@ principal() {           # Função principal do programa
     case $opcao in
         1)              # seja igual a "1", então faça as instruções abaixo
             clear
-            fun_1 ;;      # executa os comandos da função "laranja"
+            fun_1 ;;    # executa os comandos da função "fun_1"
 
                         # os 2 ";;" (ponto e virgula)
                         # significam que chegou ao final
@@ -46,7 +46,7 @@ principal() {           # Função principal do programa
 
         4)
             clear
-            fun_4 ;;                                                 #usa a função martelo e finaliza a opção do case com ";;"
+            fun_4 ;;     #usa a função martelo e finaliza a opção do case com ";;"
 
         5)
             clear
@@ -58,23 +58,23 @@ principal() {           # Função principal do programa
 
         7)
             clear
-            martelo ;;  # usa a função martelo e finaliza a opção do case com ";;"
+            fun_7 ;;  # usa a função martelo e finaliza a opção do case com ";;"
 
         8)
             clear
-            martelo ;;  # usa a função martelo e finaliza a opção do case com ";;"
+            fun_8 ;;  # usa a função martelo e finaliza a opção do case com ";;"
 
         9)
             clear
-            martelo ;;  # usa a função martelo e finaliza a opção do case com ";;"
+            fun_9 ;;  # usa a função martelo e finaliza a opção do case com ";;"
 
        10)
             clear
-            martelo ;;  # usa a função martelo e finaliza a opção do case com ";;"
+            fun_10 ;;  # usa a função martelo e finaliza a opção do case com ";;"
 
        11)
             clear
-            martelo ;;  # usa a função martelo e finaliza a opção do case com ";;"
+            fun_11 ;;  # usa a função martelo e finaliza a opção do case com ";;"
 
        12)
             clear
@@ -147,10 +147,64 @@ fun_6() {             # função da opção martelo
     read arq_1
     echo "informe quantas linhas quer ver do final do arquivo"
     read lin 
+    clear
     tail -$lin $arq_1        
     read pause
     principal
 }
+
+fun_7() {             # função da opção martelo
+    clear
+    echo "informe o nome do arquivo"
+    read arq_2
+    echo "informe quantas linhas quer ver do final do arquivo"
+    read lin2 
+    clear
+    head -$lin2 $arq_2        
+    read pause
+    principal
+}
+
+fun_8() {             # função da opção martelo
+    clear
+    echo "informe qual comando"
+    read com_1
+    whereis $com_1       
+    read pause
+    principal
+}
+
+fun_9() {             # função da opção martelo
+    clear
+    echo "informe o diretorio"
+    read dir_1
+    tree -d $dir_1       
+    read pause
+    principal
+}
+
+fun_10() {             # função da opção martelo
+    clear
+    echo "informe o arquivo que quer copiar"
+    read arq3
+    echo "informe o o destino"
+    read arq4
+    cp $arq3 $arq4      
+    read pause
+    principal
+}
+
+fun_11() {             # função da opção martelo
+    clear
+    echo "informe o arquivo que quer mover"
+    read arq5
+    echo "informe o o destino"
+    read arq6
+    mv $arq5 $arq6      
+    read pause
+    principal
+}
+
 opcao_invalida() {      # função da opção inválida
     clear
     echo "Opcao desconhecida."
